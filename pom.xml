@@ -70,7 +70,7 @@
     </dependencies>
 
     <build>
-        <finalName>keycloak-twitch</finalName>
+        <finalName>keycloak-xbox</finalName>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>

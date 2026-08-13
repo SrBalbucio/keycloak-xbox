@@ -1,0 +1,36 @@
+# Pipeline de release do keycloak-xbox
+#
+# Disparado ao publicar uma tag de versão (ex.: v1.2.3).
+# Fluxo:
+#   1. Define a versão do artefato a partir da tag (sem o prefixo "v"),
+#      para que metadados do POM/manifest batam com o release.
+#   2. Compila e empacota o JAR shaded (deployável no Keycloak).
+#   3. Cria um GitHub Release anexando o JAR e o checksum SHA-256.
+
+labels:
+  backend: docker
+
+steps:
+  - name: build
+    image: maven:3.9-eclipse-temurin-21
+    commands:
+      - mvn -B -q versions:set -DnewVersion=${CI_COMMIT_TAG#v} -DgenerateBackupPoms=false
+      - mvn -B clean package
+
+  - name: github-release
+    image: woodpeckerci/plugin-release:0.3.1
+    settings:
+      api_key:
+        from_secret: github_access_token
+      files:
+        - target/keycloak-xbox.jar
+      checksum: sha256
+      checksum-flatten: true
+      title: ${CI_COMMIT_TAG}
+      draft: false
+      file_exists: overwrite
+      overwrite: true
+
+when:
+  - event: tag
+    ref: refs/tags/v*

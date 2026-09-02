@@ -6,10 +6,10 @@
 
     <groupId>balbucio.keycloak.xbox</groupId>
     <artifactId>keycloak-xbox</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.1</version>
 
     <properties>
-        <version.keycloak>26.7.1</version.keycloak>
+        <version.keycloak>26.7.3</version.keycloak>
         <maven.compiler.release>17</maven.compiler.release>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <version.junit>5.11.4</version.junit>

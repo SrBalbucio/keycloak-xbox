@@ -6,10 +6,10 @@
 
     <groupId>balbucio.keycloak.xbox</groupId>
     <artifactId>keycloak-xbox</artifactId>
-    <version>1.0.1</version>
+    <version>1.0.2</version>
 
     <properties>
-        <version.keycloak>26.7.3</version.keycloak>
+        <version.keycloak>26.8.0</version.keycloak>
         <maven.compiler.release>17</maven.compiler.release>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <version.junit>5.11.4</version.junit>
@@ -44,7 +44,7 @@
         <dependency>
             <groupId>org.jsoup</groupId>
             <artifactId>jsoup</artifactId>
-            <version>1.23.1</version>
+            <version>1.23.2</version>
             <scope>compile</scope>
         </dependency>
 
